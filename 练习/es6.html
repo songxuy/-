@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>es6</title>
+</head>
+<body>
+<input type="text" id="in"/>
+<button id="textbox">click</button>
+</body>
+</html>
+<script type="text/javascript">
+	/*console.log(foo); // 输出undefined
+   var foo = 2;
+
+	// let 的情况
+	console.log(bar); // 报错ReferenceError
+	let bar = 2;*/
+
+	/*var tmp = 123;
+
+	if (true) {
+	  tmp = 'abc'; // ReferenceError
+	  let tmp;
+	  console.log(tmp);
+	}*/
+
+	/*function f1() { console.log('I am outside!'); }
+
+	(function () {
+	  if (false) {
+	    // 重复声明一次函数f
+	    function f() { console.log('I am inside!'); }
+	  }
+
+	  f();
+	}());//浏览器中会报错*/
+
+	//解构
+	/*let [x, y, ...z] = ['a'];
+	let [bar, foo] = [1];
+	let [a, b, d] = [1, [2, 3], 4];
+	console.log(b);*/
+	/*function f() {
+      console.log('aaa');
+    }
+
+let [x] = [f];
+console.log(typeof x);*/
+/*var text = document.getElementById('textbox');
+text.addEventListener('keyup',function(e){
+    alert(e.keyCode);
+})*/
+/*function add(x=1,y=3){
+    return x+y
+}
+alert(add())
+	var add1 = (x=1,y=3)=>x+y;
+alert(add1());
+var a =5;
+var obj = {
+    a,
+	b(){
+        console.log(this.a);
+	}
+}
+obj.b();*/
+/*var inr = document.getElementById('in');
+inr.addEventListener('textInput',function(event){
+    alert(event.data);
+});*/
+    var a=[];
+    for(let i=0;i<10;i++){
+        a[i]=function(){
+            console.log(i);
+        };
+    }
+    a[6](); //6
+
+    var b=[];
+    for(var j=0;j<10;j++){
+        b[j]=function(){
+            console.log(j);
+        };
+    }
+    b[6](); //10
+</script>

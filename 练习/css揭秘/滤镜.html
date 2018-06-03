@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滤镜</title>
+</head>
+<style>
+    a{
+        background: hsl(335,100%,50%);
+        height:412px;
+        display: block;
+        width:1016px;
+    }
+    img{
+        mix-blend-mode: luminosity;/*滤镜*/
+    }
+</style>
+<body>
+<a href="#someting">
+    <img src="../img/l1.png" alt="">
+</a>
+</body>
+</html>
+<script>
+    /*(function(x){
+        delete x;
+        alert(x);
+    })(1+5);
+    function add(a,b)
+    {
+        alert(a+b);
+    }
+
+    function sub(a,b)
+    {
+        alert(a-b);
+    }
+
+    add.call(sub,3,1);
+    sub.call(add,3,1);*/
+    /*function fn() {
+        this.a = 0;
+        this.b = function() {
+            alert(this.a)
+        }
+    }
+    fn.prototype = {
+        bb: function() {
+            this.a = 20;
+            alert(this.a);
+        },
+        c: function() {
+            this.a = 30;
+            alert(this.a);
+        }
+    }
+    var myfn = new fn();
+    myfn.c();
+    myfn.b();
+    console.log(myfn)*/
+    function fun(n,o) {
+        console.log(o)
+        return {
+            fun:function(m){
+                return fun(m,n);
+            }
+        };
+    }
+    var a = fun(0); a.fun(1); a.fun(2); a.fun(3);
+    var b = fun(0).fun(1).fun(2).fun(3);
+    var c = fun(0).fun(1); c.fun(2); c.fun(3);
+    var name = 'World!';
+    (function () {
+        if (typeof name === 'undefined') {
+            /*var*/ name = 'Jack';
+            console.log('Goodbye ' + name);
+        } else {
+            console.log('Hello ' + name);
+        }
+    })();
+</script>

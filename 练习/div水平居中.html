@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>div水平居中</title>
+</head>
+<style>
+    /*1.margin:0 auto*/
+    .pa{
+        width:200px;
+        height:200px;
+        position: relative;
+        background-color: red;
+    }
+    .cen{
+        width:100px;
+        height:100px;
+        background-color: #76d6f5;
+        position: absolute;
+        margin:auto;
+        top:0px;
+        left:0px;
+        right:0px;
+        bottom:0px;
+    }
+    /*2.transform*/
+    /*.pa{
+        width:200px;
+        height:200px;
+        background-color: red;
+        position: relative;
+    }
+    .cen{
+        width:100px;
+        height:100px;
+        background-color: #76d6f5;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+    }*/
+    /*3.flex*/
+    /*.pa{
+        width:200px;
+        height:200px;
+        display: flex;
+        background-color: red;
+        justify-content: center;/*水平对齐*/
+       /* align-items: center;/*垂直对齐*/
+    /*}
+    /*.cen{
+        width:100px;
+        height:100px;
+        background-color: #76d6f5;
+
+    }*/
+    /*4.margin*/
+    /*.pa{
+        width:200px;
+        height:200px;
+        position: relative;
+        background-color: red;
+    }
+    .cen{
+        width:100px;
+        height:100px;
+        background-color: #76d6f5;
+        position: absolute;
+        top:50%;
+        left:50%;
+        margin:-50px 0 0 -50px;
+    }*/
+</style>
+<body>
+<div class="pa">
+<div class="cen">
+</div>
+</div>
+</body>
+</html>

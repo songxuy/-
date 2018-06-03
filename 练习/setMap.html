@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setMap</title>
+</head>
+<body><!--oncopy="alert('对不起，禁止复制！');return false;"-->
+dajiahadsafasgsahshjash
+<input type="text" name="inp" id="inp" autofocus/>
+<script type="text/javascript">
+    /*document.body.oncopy = function(event){
+        setTimeout(
+            /*function (){
+               /* var clipboardData = window.clipboardData; //for IE
+                if (!clipboardData) { // for chrome
+                    clipboardData = e.originalEvent.clipboardData;
+                }*/
+                //var text = clipboardData.getData('text');
+                /*if(event.clipboardData){
+                    event.clipboardData.setData("text/html", htmlData);
+                    //setData(剪贴板格式, 数据) 给剪贴板赋予指定格式的数据。返回 true 表示操作成功。
+                    event.clipboardData.setData("text/plain",textData);
+                }
+                else if(window.clipboardData){ //window.clipboardData的作用是在页面上将需要的东西复制到剪贴板上，提供了对于预定义的剪贴板格式的访问，以便在编辑操作中使用。
+                    return window.clipboardData.setData("text", textData);
+                }
+                if(text){
+                    text = text + "\r\n本文来自: (www.jb51.net) 详细出处参考："+location.href; clipboardData.setData("text", 'nihao');
+                }else{
+                    event.clipboardData.setData("text/plain", "jia you");
+                }
+            },100)*/
+   /* }*/
+
+
+    function setClipboardText(event){
+        event.preventDefault();//阻止元素发生默认的行为（例如，当点击提交按钮时阻止对表单的提交）。
+        var node = document.createElement('div');
+        //对documentfragment不熟，不知道怎么获取里面的内容，用了一个比较笨的方式
+        node.appendChild(window.getSelection().getRangeAt(0).cloneContents());
+        //getRangeAt(0)返回对基于零的数字索引与传递参数匹配的选择对象中的范围的引用。对于连续选择，参数应为零。
+        var htmlData = '<div>著作权归作者所有。<br />'
+            + '商业转载请联系作者获得授权，非商业转载请注明出处。<br />'
+            + '作者：tiantian<br />链接：http://segmentfault.com/u/tiantian_<br />'
+            + '来源：segmentfault<br /><br />'
+            + node.innerHTML
+            + '</div>';
+        var textData = window.getSelection().getRangeAt(0)+'著作权归作者所有。\n'
+            + '商业转载请联系作者获得授权，非商业转载请注明出处。\n'
+            + '作者：tiantian\n链接：http://segmentfault.com/u/tiantian_\n'
+            + '来源：segmentfault\n\n'
+            ;
+        if(event.clipboardData){
+            event.clipboardData.setData("text/html", htmlData);
+            //setData(剪贴板格式, 数据) 给剪贴板赋予指定格式的数据。返回 true 表示操作成功。
+            event.clipboardData.setData("text/plain",textData);
+        }
+        else if(window.clipboardData){ //window.clipboardData的作用是在页面上将需要的东西复制到剪贴板上，提供了对于预定义的剪贴板格式的访问，以便在编辑操作中使用。
+            return window.clipboardData.setData("text", textData);
+        }
+    };
+    //var answer = document.getElementById("answer");
+    document.body.addEventListener('copy',function(e){
+        setClipboardText(e);
+    });
+
+
+</script>
+</body>
+</html>
+<script>
+
+    /*const s = new Set();
+
+    [2, 3, 5, 4, 5, 2, 2].forEach(x => s.add(x));
+
+    for (let i of s) {
+        console.log(i);
+    }*/
+    /*var a = [1,2,3,4,3,2];
+    alert([...new Set(a)])//数组去重*/
+    //let set = new Set(['red', 'green', 'blue']);
+
+    /*for (let item of set.keys()) {
+        console.log(item);
+    }*/
+    /*var set = new Set([1, 4, 9]);
+    set.forEach((value, key) => console.log(key + ' : ' + value))*/
+    /*var inp = document.getElementById('inp');
+    inp.addEventListener("change",function(e){
+        console.log(inp.value);
+    })*/
+    let set = new Set(['red', 'green', 'blue']);
+    let arr = [...set];
+    //set.forEach((value, key) => console.log(key + ' : ' + value))
+    console.log(set);
+    console.log(arr);
+    const map = new Map([
+        [1, 'one'],
+        [2, 'two'],
+        [3, 'three'],
+    ]);
+    console.log(typeof map);
+
+    console.log([...map.keys()]);
+// [1, 2, 3]
+
+    console.log([...map.values()])
+    // ['one', 'two', 'three']
+
+    console.log([...map.entries()])
+// [[1,'one'], [2, 'two'], [3, 'three']]
+
+    console.log([...map])
+    // [[1,'one'], [2, 'two'], [3, 'three']]
+
+</script>

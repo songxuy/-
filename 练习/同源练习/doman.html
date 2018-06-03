@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>doman</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    window.name = '我是你们bububub想要的数据。';
+    document.domain = 'localhost';
+    var ifr = document.createElement('iframe');
+    ifr.src = 'http://localhost/Same-Origin/doman.html';
+    ifr.display = "none";
+    document.body.appendChild(ifr);
+    ifr.onload = function(){
+        var doc = ifr.contentDocument || ifr.contentWindow.document;
+        // 这里就能b.html的cookie了
+        ifr.cooike = doc.cookie;
+    };
+</script>

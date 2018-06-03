@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图像边框</title>
+</head>
+<style>
+    /*1*/
+    /*.some{
+        background: url(../img/1.jpg);
+        background-size: cover;
+        padding:1em;
+    }
+    .some>div{
+        background:white ;
+        padding:1em;
+    }*/
+    /*2*/
+    div{
+        padding:1em;
+        border:1em solid transparent;
+        /*background: linear-gradient(white,white),url(../img/1.jpg);
+        background-size: cover;
+        background-clip: padding-box,border-box;/*规定背景的绘制区域。填充盒和边框盒*/
+        /*background-origin: border-box;*/
+        background: linear-gradient(white,white) padding-box,repeating-linear-gradient(-45deg,red 0,red 12.5%,transparent 0,transparent 25%,
+        #58a 37.5%,transparent 0,transparent 50%) 0 / 5em 5em;/*信封边框*/
+    }
+</style>
+<body>
+<!--<div class="some">
+    <div>I have a nice stone art border,
+    don't I look pretty</div>
+</div>-->
+<div>I have a nice stone art border,
+    don't I look pretty</div>
+</body>
+</html>

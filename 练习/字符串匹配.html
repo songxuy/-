@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串匹配</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var text = "cat,bat,sat,fat";
+    //alert(/at/g.test(text));//true
+    var pat = /.at/g;
+    var marches = text.match(pat);//等价于 pat.exec(text)
+    //alert(marches[1]);//bat
+    var result = text.replace(/(.at)/g,"word($&)");
+    alert(result);
+    for (const match of marches) {
+        console.log(match);
+    }
+    String.prototype.changeString = function(patten,str){
+        if(this.match(patten)){
+            return this.replace(patten,str);
+        }
+    }
+    var a =text.changeString(/(.at)/g,"word($1)");
+    alert(a)
+    /*if(null){
+        console.log("true");
+    }else{
+        console.log("false");
+    }
+    console.log([]==false);
+    function g1(){
+        console.log("g1");
+    }
+    function g2(){
+        console.log("g2");
+    }
+    function g3(){
+        console.log("g3");
+    }
+    function g4(){
+        console.log("g4");
+    }
+    (function(){
+        g1();
+        setTimeout(g2,0);
+        Promise.resolve().then(
+            function(){
+                console.log("g3");
+            }
+        );
+        g4()
+    })()
+    /*console.log(2 == true);
+    console.log(NaN == NaN);
+    console.log({} == {});// 图片1.f {}是对象，比较引用指向的空间，因为是两个不同的空对象，地址也不一样 false
+    console.log([] == []);// 同理
+    console.log(null == 0);// 文字1.2 null是对象，String(null) == "null"  -> "null" == 0 ，文字1.1 Number("null") == NaN -> NaN == 0 false
+    console.log(undefined == 0);*/
+
+</script>

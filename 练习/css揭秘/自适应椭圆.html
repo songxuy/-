@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自适应椭圆</title>
+</head>
+<style>
+    div{
+        background: #fb3;
+        width:200px;
+        height:100px;
+        /*border-radius: 50% / 50%;/*同时指定水平和垂直的半径 完整的椭圆*/
+        border-radius: 50% / 100% 100% 0 0;/*半椭圆*/
+        border-radius: 100% 0 0 100% / 50%;
+        border-radius: 100% 0 0 0;/*0.25椭圆*/
+    }
+</style>
+<body>
+<div></div>
+</body>
+</html>

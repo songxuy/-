@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>post</title>
+</head>
+<body>
+<iframe id="iframe" src="http://127.0.0.1/Same-Origin/postH.html"></iframe>
+<input id="msg" type="text" placeholder="请输入要发送的消息">
+<button id="send">发送</button>
+</body>
+</html>
+<script>
+    window.onload =function() {
+             document.getElementById('send').onclick = function() {
+                var msg = document.getElementById('msg').value;
+                 var iframeWindow = document.getElementById('iframe').contentWindow;
+                 iframeWindow.postMessage(msg,"http://127.0.0.1/Same-Origin/postH.html");
+                 }
+        7 }
+</script>

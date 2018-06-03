@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>原型链</title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+	/*function Person(name,age,job){
+		this.name=name;
+		this.age=age;
+		this.job= job;
+		this.sayName = function(){
+			alert(this.name);
+		}
+	}
+	var person1 = new Person('a',29,'soft');
+	var person2 = new Person('b',28,'er');
+	alert(person1.sayName == person2.sayName);*/
+	/*function Person(){}
+	Person.prototype.name="song";
+	Person.prototype.age=14;
+	Person.prototype.job="soft";
+	Person.prototype.sayName = function(){
+		alert(this.name);
+	}
+	var person1 = new Person();
+	var person2 = new Person();
+	var p1 = Object.keys(Person.prototype);
+	person1.say='nihao'
+	var p2 = Object.keys(person1)
+	alert(person1.say)
+	alert(p2)*/
+	/*function Person(){}
+	Person.prototype={
+		contructor:Person,
+		name:'song',
+		age:14,
+		job:'soft',
+		//friends:['you','me'],
+		sayName:function(){
+			alert(this.name);
+		}
+	}
+	var person1 = new Person();
+	var person2 = new Person();
+	//person1.friends.push('wo');
+	person1.wo="hahah";
+	person1.friends=['you','me'];
+	alert(person1.friends);
+	alert(person2.friends);*/
+	/*function Supert(name){
+		this.name = name;
+		this.colors = ['red','blue','black'];
+	}
+	Supert.prototype.sayName=function(){
+		alert(this.name);
+	}
+	function SubT(name,age){
+		Supert.call(this,name);
+		this.age=age;
+	}
+	SubT.prototype = new Supert();
+	SubT.prototype.sayAge=function(){
+		alert(this.age);
+	}
+	var ina = new SubT('nihao',12);
+	ina.colors.push('white');
+	alert(ina.colors);
+	ina.sayName();
+	ina.sayAge();
+	var ina2 = new SubT('hah',10);
+	alert(ina2.colors);
+	ina2.sayName();
+	ina2.sayAge();
+*/
+/*sayHi();
+function sayHi(){
+	alert('hi');
+}
+alert(i);
+var i=0;*/
+/*function createF(){
+	var result = new Array();
+	for(var i=0;i<10;i++){
+		result[i] = function(){
+			return i;
+		};
+	}
+	return result;
+}
+/*var a = createF();
+for(var i=0;i<10;i++){
+	alert(a[i]());
+}*/
+/*function createC(){
+	var result = new Array();
+	for(var i=0;i<10;i++){
+		result[i] = function(i){
+			return function(){
+				return i;
+			};
+		}(i);
+	}
+	return result;
+}
+var b = createC();
+for(var i=0;i<10;i++){
+	alert(b[i]());
+}*/
+/*var name="nihao";
+var obj = {
+	name:'wo bu hao',
+	getName:function(){
+		return function(){
+			return this.name;
+		}
+	}
+}
+alert(obj.getName()()) //nihao*/
+/*var name="nihao";
+var obj = {
+	name:'wo bu hao',
+	getName:function(){
+		var that =this;
+		return function(){
+			return that.name;
+		}
+	}
+}
+alert(obj.getName()()) //wo bu hao*/
+var name="nihao";
+var obj = {
+	//name:'wo bu hao',
+	getName:function(){
+			return this.name;
+	}
+}
+obj.name="wo bu hao"
+alert(obj.getName()) //wo bu hao
+alert((obj.getName)()) //wo bu hao
+alert((obj.getName=obj.getName)())
+</script>

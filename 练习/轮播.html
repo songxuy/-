@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播</title>
+</head>
+<style>
+    *{
+        padding:0px;
+        margin:0px;
+    }
+    li{
+        list-style: none;
+    }
+    .main{
+        width:508px;
+        height:206px;
+        margin:auto;
+        position:absolute;
+        left:0px;
+        top:0px;
+        bottom:0px;
+        right:0px;
+    }
+    .main .main_img{
+        width:508px;
+        height:206px;
+    }
+    .main .main_img div:first-child{
+        display: block;
+    }
+    .main .main_img .item{
+        position: absolute;
+    }
+    .main .main_img .item img{
+        width:508px;
+        height:206px;
+    }
+    .main .ria{
+        margin-left:20px;
+        position: absolute;
+        top:190px;
+    }
+    .main .ria li{
+        width:10px;
+        height: 10px;
+        background-color: #ffffff;
+        float:left;
+        margin-left:10px;
+        border-radius: 50%;
+    }
+    .main .main_img .item span{
+        font-size: 16px;
+        color:#ffffff;
+        position: relative;
+        top:-50px;
+        left:30px;
+    }
+    .main .btn{
+        position: absolute;
+        height:50px;
+        width:35px;
+        color:#fff;
+        text-align:center;
+        line-height:50px;
+        font-size:35px;
+        top:75px;
+        cursor:pointer;
+        display: none;
+    }
+    .main .right{
+        left:470px;
+        top:72px;
+    }
+    .main .ria li:first-child{
+        width:45px;
+        border-radius: 15px;
+    }
+</style>
+<body>
+<div class="main">
+    <div class="main_img">
+        <div class="item">
+            <a href="#"><img src="img/l1.png"/></a>
+            <span>爬取陈奕迅的新歌《我们》 10万条评论数据显示</span>
+        </div>
+        <div class="item">
+            <a href="#"><img src="img/l2.jpg"/></a>
+            <span>被人工智能操纵的金融业</span>
+        </div>
+        <div class="item">
+            <a href="#"><img src="img/l3.jpg"/></a>
+            <span>满足着三个条件，也许不用深度神经网络</span>
+        </div>
+        <div class="item">
+            <a href="#"><img src="img/l4.png"/></a>
+            <span>“全面封杀”中兴</span>
+        </div>
+        <div class="item">
+            <a href="#"><img src="img/l5.jpg"/></a>
+            <span>那个学Python的同龄人，也许已经抛弃你了</span>
+        </div>
+    </div>
+    <ol class="ria">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+    <div class="btn left">
+        <
+    </div>
+    <div class="btn right">
+        >
+    </div>
+</div>
+</body>
+</html>
+<script src="jquery-3.1.1.min.js" ></script>
+<script>
+    var index=0;
+    var timer;
+    $(function(){
+        var lis = $('.item');
+        var ria = $('ol li');
+        //console.log(list,ria)
+        function changepic(){
+            /*lis.eq(index).addClass('current').siblings().removeClass("current");
+            ria.eq(index).addClass('active').siblings().removeClass("active");*/
+            lis.eq(index).show().siblings().hide()
+            ria.eq(index).animate({width:"45px",borderRadius: "15px"},1000).siblings().animate({width:"10px",borderRadius: "50%"},1000)
+        }
+        Showtime();
+        $('.main').hover(function(){
+            $('.main .btn').show(500);
+        },function(){
+            $('.main .btn').hide(500)
+        })
+
+        ria.click(function(){
+            clearInterval(timer);
+            index=$(this).index();
+            changepic();
+            setTimeout(Showtime,2000);
+        })
+        $('.left').click(function(){
+            clearInterval(timer);
+            if (index == 0) {
+                index = 5;
+            }
+            index--;
+            changepic();
+            Showtime();
+        })
+        $('.right').click(function(){
+            clearInterval(timer);
+            if (index == 4) {
+                index = -1;
+            }
+            index++;
+            changepic();
+            Showtime();
+        })
+        function Showtime() {
+            timer = setInterval(function () {//间隔多久干什么
+                index++;
+                if (index == 5) {
+                    index = 0;
+                }
+                changepic();
+            }, 3000);
+        }
+    })
+</script>

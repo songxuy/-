@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<!--<style type="text/css">
+body,div{margin: 0;padding: 0;}
+.fl{float: left; display: inline;}
+.bc_C{background-color: #CCC;}
+.h120{height: 120px;}
+.h250{height: 250px;}
+.w120{width: 120px;}
+.w220{width: 220px;}
+.t130{top: 130px;}
+.pa{position: absolute;}
+.mr10{margin-right: 10px;}
+.mb10{margin-bottom: 10px;}
+</style>
+<body>
+      <div class="fl bc_C h120 w120 mb10 mr10">sss</div>
+      <div class="fl bc_C h250 w220"></div>
+      <div class="bc_C h120 w120 t130 pa"></div>
+</body>-->
+<style type="text/css">
+body, div{margin: 0;padding: 0;}
+/*.fl{float: left; display: inline;}*/
+.bc_C{background-color: #CCC;}
+.h120{height: 120px;}
+.h250{height: 250px;}
+.w120{width: 120px;}
+.w220{width: 220px;}
+.t130{top: 130px;}
+.l130{left: 130px;}
+.pa{position: absolute;}
+.mr10{margin-right: 10px;}
+.mb10{margin-bottom: 10px;}
+.clear{clear: both}
+</style>
+<body>
+<div class="bc_C h120 w120 mb10 mr10 pa" id="first"></div>
+<div class="bc_C h250 w220 l130 pa" id="second"></div>
+<div class="bc_C h120 w120 t130 pa" id="third"></div>
+</body>
+          <script type="text/javascript">
+                function zoom(id, x, y){
+                      var obj = document.getElementById(id); //设置缩放函数参数：容器id、横向缩放倍数、纵向缩放倍数
+                      var bw = obj.clientWidth; //获取元素宽度
+                      var bh = obj.clientHeight; //获取元素高度
+                      obj.onmouseover = function(){
+                            this.style.width = bw*x+"px";
+                            this.style.height = bh*y+"px";
+                            this.style.backgroundColor = "#f7b";
+                            this.style.zIndex = 1000;
+                      }
+                      obj.onmouseout = function(){
+                            this.style.width = bw+"px";
+                            this.style.height = bh+"px";
+                            this.style.backgroundColor = "";
+                            this.style.zIndex = "auto";
+                      }
+                }
+                zoom("first", 1.25, 1.25);
+          </script>
+</html>

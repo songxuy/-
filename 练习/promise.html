@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+</head>
+<style>
+textarea:focus,input:focus{
+    outline: none;
+}
+</style>
+<body>
+<textarea>nihaoaa</textarea>
+<input type="text" />
+<button id="getJ">获取</button>
+<div class="key"></div>
+<div class="value"></div>
+</body>
+</html>
+<script src="jquery-3.1.1.min.js"></script>
+<script>
+    /*function timeout(ms) {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, ms, 'done');
+        });
+    }
+
+    timeout(1000).then((value) => {
+        console.log(value);
+    });*/
+    /*let promise = new Promise(function(resolve, reject) {
+        console.log('Promise');
+        resolve();
+    });
+
+    promise.then(function() {
+        console.log('resolved.');
+    });
+
+    console.log('Hi!');*/
+    /*const p1 = new Promise(function (resolve, reject) {
+        setTimeout(() => reject('success'), 3000)
+    })
+
+    const p2 = new Promise(function (resolve, reject) {
+        setTimeout(() => resolve(p1), 1000)
+    })
+
+    p2.then(result => console.log(result)).catch(error => console.log(error))//error*/
+    /*new Promise((resolve, reject) => {
+        resolve(1);
+        console.log(2);
+    }).then(r => {
+        console.log(r);
+    });//2 1*/
+    /*const someAsyncThing = function() {
+        return new Promise(function(resolve, reject) {
+            // 下面一行会报错，因为x没有声明
+            resolve(x+2);
+        });
+    };
+
+    someAsyncThing().then(function() {
+        console.log('everything is great');
+    }).catch(function(err){
+        console.log("oh no ",err)
+    });
+
+    setTimeout(() => { console.log(123) }, 2000);
+    // Uncaught (in promise) ReferenceError: x is not defined
+    // 123*/
+    const getJSON = function(url) {
+        const promise = new Promise(function(resolve, reject){
+            /*const handler = function() {
+                if (this.readyState !== 4) {
+                    return;
+                }
+                if (this.status === 200) {
+                    resolve(this.response);
+                } else {
+                    reject(new Error(this.statusText));
+                }
+            };
+            const client = new XMLHttpRequest();
+            client.open("GET", url);
+            client.onreadystatechange = handler;
+            client.responseType = "json";
+            client.setRequestHeader("Accept", "application/json");
+            client.send();*/
+            $.ajax({
+                type:"get",
+                url:url,
+                dataType:"json",
+                success:function(data){
+                    resolve(data);
+                }
+            })
+
+        });
+
+        return promise;
+    };
+    getJSON("posts.json").then(function(json) {
+        var a = JSON.stringify(json);
+        var b = $.parseJSON(a)
+        console.log(json)
+        console.log(typeof a)
+        console.log(b)
+        for(var key of a)
+        console.log('Contents: '+key);
+    }, function(error) {
+        console.error('出错了', error);
+    });
+    $('#getJ').click(function(){
+        var va = $('input').val();
+        $.ajax({
+            type:"get",
+            url:"posts.json",
+            dataType:"json",
+            data:{value:va},
+            success:function(data){
+                $.each(data,function(i,v){
+                    $('.key').append(i);
+                    $('.value').append(v);
+                })
+            }
+        })
+
+    })
+    console.log(location.href)
+</script>

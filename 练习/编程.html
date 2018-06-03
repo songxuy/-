@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div>nihao</div>
+<div>nihao</div>
+<div>nihao</div>
+</body>
+</html>
+<script type="text/javascript">
+	/*var a = 'abcAUTad';
+	var b ='';
+	var c = '';
+	for(var i =0;i<a.length;i++){
+    if(a[i]>='A'&&a[i]<='Z'){
+        c+=a[i];
+    }else{
+    	b+=a[i];
+    }
+}
+
+alert(b+c);*/
+/*var fn = function() {
+    var divs = document.querySelectorAll('div');
+    for (var i = 0; i < 3; i++) {
+        divs[i].onclick = function() {
+            alert(i);
+        };
+    }
+};
+fn();*/
+    /*var fn = function() {
+        var divs = document.querySelectorAll('div');
+        for (var i = 0; i < 3; i++) {
+            divs[i].onclick = (function(i) {
+                return function() {
+                    alert(i);
+                };
+            })(i);
+        }
+    };
+    fn();*/
+/*var fn = function() {
+    var divs = document.querySelectorAll('div');
+    for (var i = 0; i < 3; i++) {
+        (function(i) {
+            divs[i].onclick = function() {
+                alert(i);
+            };
+        })(i);
+    }
+};
+fn();*/
+    var fn = function() {
+        var divs = document.querySelectorAll('div');
+        for (var i = 0; i < 3; i++) {
+            divs[i].onclick = function(i) {
+                return function() {
+                    alert(i);
+                };
+            };
+        }
+        return divs;
+    };
+    var arr=fn();
+    for (var i = 0; i < 3; i++) {
+        setTimeout((function(i) {
+            return function() {
+                console.log(i);
+            };
+        })(i), 0);
+        console.log(i);
+    }
+</script>

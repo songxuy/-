@@ -1,0 +1,180 @@
+<!--<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>圣杯布局</title>
+</head>
+<style>
+*{
+	padding:0px;
+	margin:0px;
+}
+.container{
+	position: relative;
+	padding-left:200px;
+	padding-right:200px;
+	overflow: hidden;
+}
+.column{
+	float: left;
+	height:300px;
+}
+#center_panel{
+	background-color: red;
+	width: 100%;
+}
+#right_panel{
+	background-color: green;
+	width:200px;
+	margin-left: -200px;
+	position: relative;
+    left:200px;
+}
+#left_panel{
+	background-color: green;
+	width:200px;
+	margin-left:-100%;
+	position: relative;
+    left:-200px;
+}
+</style>
+<body>
+ <div class="container">
+        <div class="column" id="center_panel">center</div>
+
+       <div class="column" id="left_panel">left</div>
+     <div class="column" id="right_panel">right</div>
+ </div>
+</body>
+</html>
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo-圣杯布局</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        min-width: 650px;
+    }
+    header,footer{
+        text-align: center;
+        background: #aaaaaa;
+    }
+    .container{
+        overflow: hidden;
+        padding: 0 200px 0 200px;;
+    }
+    .middle{
+        position: relative;
+        float: left;
+        width: 100%;
+        background: red;
+        height: 100px;
+    }
+    .left{
+        position: relative;
+        float: left;
+        width: 200px;
+        background: green;
+        height: 100px;
+        margin-left: -100%;
+        left: -200px;
+    }
+    .right{
+        position: relative;
+        float: right;
+        width: 200px;
+        background: yellow;
+        height: 100px;
+        margin-left: -200px;
+        right: -200px;
+
+    }
+</style>
+</head>
+<body>
+<header><h1>header</h1></header>
+
+<div class="container">-->
+    <!--先写中间部分-->
+    <!--<div class="middle"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+
+<footer><h1>footer</h1></footer>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>圣杯布局</title>
+</head>
+<style>
+    *{
+        padding:0px;
+        margin:0px;
+    }
+    .container{
+        padding-left:200px;
+        padding-right: 200px;
+    }
+    .column{
+        float: left;
+        height:200px;
+    }
+    #center_panel{
+        width:100%;
+        background-color: red;
+    }
+   #left_panel{
+        width:200px;
+        position: relative;
+        margin-left:-100%;
+        left:-200px;
+        background-color: #72dcb8;
+    }
+    #right_panel{
+        width:200px;
+        position: relative;
+        margin-left:-200px;
+        left:200px;
+        background-color: #72dcb8;
+    }
+    .container1{
+        height: 300px;
+        width:100%;
+        display: flex;
+    }
+    #main{
+        flex-grow: 1;
+        background-color: blue;
+    }
+    #left{
+        order:-1;
+        flex-basis: 200px;
+        background-color: green;
+    }
+    #right{
+        flex-basis: 300px;
+        background-color: red;
+    }
+</style>
+<body>
+<div class="container">
+    <div class="column" id="center_panel">center</div>
+    <div class="column" id="left_panel">left</div>
+    <div class="column" id="right_panel">right</div>
+</div>
+<div class="container1">
+    <div  id="main">center</div>
+    <div  id="left">left</div>
+    <div  id="right">right</div>
+</div>
+</body>
+</html>

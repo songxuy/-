@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数扩展</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*var x=1;
+    function f(x,y=x){
+        console.log(y)
+    }
+    f(2)//2
+    function f(y=x){
+        var x=2;
+        console.log(y)
+    }
+    f()//1*/
+    /*function f(y=x){
+        var x=2;
+        console.log(y)
+    }
+    f() //x not defined*/
+    /*function push(array,...items){
+        items.forEach(function(a){
+            array.push(a)
+        })
+    }
+    var a=[];
+    var a1=[1,2,3,4]
+    /*push(a,1,2,3,4);
+    console.log(a)*/
+    /*a.push(...a1)
+    console.log(a)
+    console.log(push.name)*/
+    var hand = {
+        id:"123456",
+        /*init:function(){
+            document.addEventListener("click",event=>this.dosometing(event.type),false);
+        },*/
+        init:function(){
+            document.addEventListener("click",function(event){
+                this.dosometing(event.type);
+            },false)
+        },
+        dosometing:function(type){
+            console.log("handing is :"+type);
+        }
+    }
+    hand.init();
+</script>

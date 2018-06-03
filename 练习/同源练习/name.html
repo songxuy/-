@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>name</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    var iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    var state = 0;
+    iframe.onload = function() {
+        if(state === 1) {
+            var data = iframe.contentWindow.name;
+            console.log(data);
+            iframe.contentWindow.document.write('');
+            iframe.contentWindow.close();
+            document.body.removeChild(iframe);
+        } else if(state === 0) {
+            state = 1;
+            iframe.contentWindow.location = 'http://127.0.0.1/Same-Origin/nameH.html';
+        }
+    };
+    iframe.src = 'http://localhost:63342/同源练习/doman.html';
+    document.body.appendChild(iframe);
+</script>

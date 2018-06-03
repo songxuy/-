@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>symbol</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*let s = Symbol();
+
+    alert(typeof s)//symbol*/
+    /*let s1 = Symbol('foo');
+    let s2 = Symbol('bar');
+
+    console.log(s1)// Symbol(foo)
+    s2 // Symbol(bar)*/
+    /*const obj = {
+        toString() {
+            return 'abc';
+        }
+    };
+    const sym = Symbol(obj);
+    console.log(sym) // Symbol(abc)*/
+    /*let sym = Symbol('My symbol');
+
+    alert(String(sym)) // 'Symbol(My symbol)'
+    alert(sym.toString()) // 'Symbol(My symbol)'*/
+    /*let mySymbol = Symbol();
+
+    // 第一种写法
+    /*let a = {};
+    a[mySymbol] = 'Hello!';*/
+
+    // 第二种写法
+    /*let a = {
+        [mySymbol]: 'Hello!'
+    };
+    alert(a[mySymbol])*/
+    const mySymbol = Symbol();
+    const a = {};
+
+    a.mySymbol = 'Hello!';
+    alert(a[mySymbol]) // undefined
+    alert(a['mySymbol']) // "Hello!"
+</script>

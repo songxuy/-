@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+<style>
+    #text li:first-child{
+        display: block;
+    }
+    #text li{
+        display: none;
+    }
+</style>
+<body>
+<div class="button-group">
+    <button type="button" class="btn" id="btn1">提交</button>
+    <button type="button" class="btn" id="btn2">提交</button>
+    <button type="button" class="btn" id="btn3">提交</button>
+</div>
+<div style="width:400px;height:200px;">
+    <span style="float:left;width:auto;height:100%;">
+        <i style="position:absolute;float:left;width:100px;height:50px;">hello</i>
+    </span>
+</div>
+<div>
+    <ul id="menu">
+        <li id="1">1</li>
+        <li id="2">2</li>
+        <li id="3">3</li>
+    </ul>
+    <ul id="text">
+        <li>1111111111111111111111111111111111111111111111111111111111111111111</li>
+        <li>2222222222222222222222222222222222222222222222222222222222222222222</li>
+        <li>3333333333333333333333333333333333333333333333333333333333333333333</li>
+    </ul>
+</div>
+<script src = "jquery-3.1.1.min.js"></script>
+<script>
+    var menu = document.getElementById("menu");
+    var text = document.getElementById('text').getElementsByTagName("li");
+    menu.addEventListener("click",function(e){
+        //console.log(e.target.id);
+        //console.log(text.length)
+        for(var i=0;i<text.length;i++){
+            if(e.target.id==i+1){
+                //console.log(i);
+                text[i].style.display ="block";
+            }else{
+                text[i].style.display ="none";
+            }
+        }
+    })
+    $(".button-group").on('click', function(event) {
+        alert(event.target.id);
+    });
+    console.log(typeof  JSON.stringify('{"string":"string"}'));
+    function arrayMerge(){
+        var arr = new Array();
+        for(var i=0;i<arguments.length;i++){
+            arr=arr.concat(arguments[i]);
+        }
+        return arr;
+    }
+    console.log(arrayMerge([1,2,3],[5,4,16]))
+
+</script>
+</body>
+</html>

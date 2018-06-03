@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>async</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //1
+    /*function timeout(ms) {
+        return new Promise((resolve) => {
+            setTimeout(resolve, ms);
+        });
+    }
+
+    async function asyncPrint(value, ms) {
+        await timeout(ms);
+        console.log(value);
+    }
+
+    asyncPrint('hello world', 50);*/
+    //2 async函数内部return语句返回的值，会成为then方法回调函数的参数。
+    /*async function f() {
+        await 'nihao';
+        return 'hello world','nihai';
+    }
+
+    f().then(v => console.log(v),e => console.log(e))*/
+    /*async function f() {
+        throw new Error('出错了');
+    }
+
+    f().then(
+        v => console.log(v),
+        e => console.log(e)
+    )*/
+    async function f() {
+        try {
+            await Promise.reject('出错了');
+        } catch(e) {
+        }
+        return await Promise.resolve('hello world');
+    }
+
+    f().then(v => console.log(v)).catch(e => console.log(e))
+    // hello world
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多重边框</title>
+</head>
+<style>
+    /*.borders {
+        border: solid 6px #fff;
+        outline: solid 6px #888;
+    }
+    .base {
+        background: #000;
+        padding: 4rem 2rem;
+        color:#fff;
+        font-weight: bold;
+        text-align: center;
+        margin: 1rem;
+    }*/
+    /*.outer {
+        border: solid 6px #888;
+        background: #fff;
+    }
+    .base {
+        color:#fff;
+        font-weight: bold;
+        text-align: center;
+        padding: 4rem 2rem;
+        background: #222;
+        /*margin: 6px;*/
+        /*border:1px solid #fff;
+    }*/
+    .borders {
+        border: solid 6px red;
+        position: relative;
+    }
+    .borders:after{
+        content: "1";
+        position: absolute;
+        top: -6px;
+        left: -6px;
+        right: -6px;
+        bottom: -6px;
+        border: solid 3px #888;
+    }
+    .base {
+        background: #222;
+        padding: 4rem 2rem;
+        color:#fff;
+        font-weight: bold;
+        text-align: center;
+        /*margin: 1rem;*/
+    }
+</style>
+<body>
+<!--<div class="base borders">利用outline实现双重边框</div>-->
+<!--<div class="outer m-1">
+    <div class="inner base">利用额外的DIV嵌套实现双重边框</div>
+</div>-->
+<div class="borders base">利用伪元素实现双重边框</div>
+</body>
+</html>

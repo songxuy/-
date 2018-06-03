@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+	/*var obj = new Boolean(false);
+	var re = obj.valueOf() && true;
+	alert(re);*/
+	/*var o={value : 3};
+	var max = Math.max.bind(o);
+	alert(max(o.value,2))*/
+	/*var num=10;
+	function get(){
+		alert(num);
+		var num=20;
+		alert(num);
+	}
+   get();*/
+   function func(){
+			alert('调用外部函数');
+		};
+		var foo=function(){
+			func();
+			//但是匿名函数不会预编译
+		    function func(){
+			alert('调用内部函数');
+			}
+			func();
+		};
+	foo();
+	/*var n=999;
+		function f1(){
+			alert(n);
+		}
+		f1();*/
+		/*function outfun(){
+			var a=0;
+			function innerfun(){
+				a++;
+				alert(a);
+			}
+			return innerfun;
+			
+		}
+		var b=outfun;
+		alert(b.a);*/
+	/*var name = "The Window";
+　　var object = {
+　　　　name : "My Object",
+　　　　a:function de(){
+			var	name ="bject";
+			var that =this;
+　　　　　　return function(){
+　　　　　　　　return that.name;
+　　　　　　};
+　　　　}
+　　};
+　　alert(object.a()());*/
+</script>

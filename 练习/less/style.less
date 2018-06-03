@@ -1,0 +1,13 @@
+@width:100px;
+@height:100px;
+@bg:green;
+.border(@wi:2px){
+  border:@wi solid red; ;
+}
+div{
+  width: @width;
+  height: @height;
+  background-color: @bg;
+  .border();
+  box-shadow:1px 2px #000000;
+}

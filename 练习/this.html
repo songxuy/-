@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>this</title>
+</head>
+<body>
+<button id="btn">click</button>
+</body>
+</html>
+<script type="text/javascript">
+	//全局作用域或者普通函数中this指向全局对象window
+	//console.log(this) //window
+
+//function声明函数
+/*function bar () {console.log(this)}
+bar() //window
+
+//function声明函数赋给变量
+var bar = function () {console.log(this)}
+bar() //window*/
+
+//自执行函数
+/*(function () {
+alert(this);
+})(); //window*/
+/*!function(a){
+    console.log(a);  //firebug输出12345,使用！运算符
+}(12345);
+
+function sayHello()
+{
+     alert("hello");
+}(1); */
+/*var obj = {
+ b:'1',
+ a:function () {
+ console.log(this);
+} //window
+}
+obj.a();*/
+//方法调用中谁调用this指向谁
+/*var person = {
+	a:'1',
+	self:this,
+    run: function () {console.log(this.self)}
+}
+alert(person.self) // person*/
+//在构造函数或者构造函数原型对象中this指向构造函数的实例
+//不使用new指向window
+/*function Person (name) {
+    console.log(this) // window
+    this.name = name;
+    console.log(this) //windiw
+}
+var a = Person('inwe');
+console.log(window.name)*/
+//使用new
+/*function Person (name) {
+	console.log(this)
+      this.name = name
+      console.log(this) //people
+      self = this
+  }
+  var people = new Person('iwen')
+  console.log(this.self) //true
+//这里new改变了this指向，将this由window指向Person的实例对象people*/
+/*function foo() {
+console.log( this.a );
+}
+var obj = {
+a: 2,
+foo: foo
+};
+var bar = obj.foo; // 函数别名！bar是全局变量
+var a = "oops, global"; // a是全局对象的属性
+bar();
+obj.foo()*/
+// "oops, global"*/
+/*function foo() {
+console.log( this.a );
+}
+function doFoo(fn) { // fn其实引用的是foo
+fn(); // <-- 调用位置！
+}
+var obj = {
+a: 2,
+foo: foo
+};
+var a = "oops, global"; // a是全局对象的属性
+foo.apply(obj); // "oops, global"*/
+/*function fn()
+{
+this.user = '追梦子';
+console.log(this);
+return {};
+
+}
+var a = new fn();
+console.log(a.user); //undefined*/
+/*function fn()
+{
+this.user = '追梦子';
+return function(){};
+}
+fn();
+console.log(this.user); //undefined*/
+
+/*function fn()
+{
+this.user = '追梦子';
+console.log(this);
+return {
+	this:this
+};
+}
+var a = new fn();
+console.log(a.this.user); //追梦子*/
+//箭头函数里的this 根据外层（函数或者全局）作用域来决定 this 。
+/*function foo() { // 返回一个箭头函数
+return () => { //this继承自foo()
+console.log( this.a );
+}
+}*/
+/*function foo() { // 返回一个箭头函数
+	var a =4;
+	return function(){ //this继承自foo()
+	console.log( this.a );
+}
+}
+var a =1;
+var obj1 = {
+a:2
+};
+var obj2 = {
+a:3
+};
+/*var bar = foo.call( obj1 );
+bar.call( obj2 ); // 2, 不是3！*/
+/*var bar = foo();
+bar.call(this);  //不是很懂要了解箭头函数
+bar();*/
+/*var myNumber = {
+  value: 1,
+  add: function(i){
+    return  function a(i){
+        console.log(this);
+          this.value += i;
+    }
+
+  }
+}
+myNumber.add(1)(1);
+alert(myNumber.add)*/
+    //"use strict";
+    /*var num = 2;
+    function showNum(){
+        console.log(this.num);
+        console.log(this);//window
+    }
+    showNum();*/
+    /*var obj = {
+        a: 2,
+        foo: function(){
+            console.log(this.a);
+        }
+    };
+    obj.foo();//2*/
+
+/*function foo() {
+console.log( this.a );
+}
+function doFoo(fn) {
+fn();
+}
+var obj = {
+a: 2,
+foo: foo
+};
+var a = "hello";
+doFoo( obj.foo );*/
+    /*function foo() {
+        console.log( this.a );
+    }
+    var obj = {
+        a: 2,
+        foo: foo
+    };
+    var a = "hello";
+    setTimeout(obj.foo.call(obj),100 );*/
+/*function Polygon(sides){
+    /*if(this instanceof  Polygon){
+        console.log(this);
+        this.sides = sides;
+        this.getAre = function(){
+            return 0;
+		}
+
+	}else{
+        console.log(this);
+        return new Polygon(sides);
+	}*/
+    /*this.sides = sides;
+    this.getAre = function() {
+        return 0;
+    }
+}
+function Rect(width,height){
+    Polygon.call(this,2);
+    this.width=width;
+    this.height=height;
+    this.getare = function(){
+        return this.width*this.height;
+	}
+}
+var rect = new Rect(5,10);
+alert(rect.sides);
+console.log(rect)*/
+var har = {
+    message:"hello world",
+	handleClick:()=>{
+        console.log(this)
+        alert(this.message);
+	}
+}
+har.handleClick()
+var btn = document.getElementById("btn");
+btn.addEventListener("click",function(e){
+    har.handleClick(e)
+})
+btn.addEventListener("click",har.handleClick.bind(har))
+    /*function foo() {
+        setTimeout(()=> {
+            console.log(this)
+            console.log('id:', this.id);
+        }, 100);
+    }
+
+    var id = 21;
+
+    foo.call({ id: 42 });//42
+    foo();//21*/
+    /*function Timer() {
+        this.s1 = 0;
+        this.s2 = 0;
+        // 箭头函数
+        setInterval(() => this.s1++, 1000);
+        // 普通函数
+        setInterval(function () {
+            console.log(this)
+            this.s2++;
+        }, 1000);
+    }
+
+    var timer = new Timer();
+
+    setTimeout(() => console.log('s1: ', timer.s1), 3100);
+    setTimeout(() => console.log('s2: ', timer.s2), 3100);*/
+    var a=1
+    var ob = {
+        a:3,
+		getA:function(){
+            return ()=>{
+                console.log(this)
+                return this.a;
+            }
+		}
+	}
+	alert(ob.getA()())
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>媒体查询</title>
+</head>
+<style>
+    /*body{
+        background-color: yellow;
+    }
+    @media screen and (max-width: 960px){
+        body{
+            background-color: #e75c62;
+        }
+    }*/
+    .contaner{
+        background-color: red;
+        overflow: hidden;
+    }
+    .contaner section{
+        width:25%;
+        height:100px;
+        float:left;
+        border:2px solid green;
+        box-sizing: border-box;
+    }
+    @media screen and (max-width: 900px){
+        .contaner section{
+            width:50%;
+        }
+    }
+    @media screen and (max-width: 500px){
+        .contaner section{
+            width:100%;
+        }
+    }
+</style>
+<body>
+<div class="contaner">
+    <section>1</section>
+    <section>2</section>
+    <section>3</section>
+    <section>4</section>
+</div>
+</body>
+</html>

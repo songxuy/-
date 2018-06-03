@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编程面试</title>
+</head>
+<style>
+    span{
+        font-size:20px;
+    }
+</style>
+<body>
+<span>helllo world</span>
+</body>
+</html>
+<script>
+    //1.遍历对象排序
+   /* var par=[
+        {age:2 ,name:'song'},
+        {age:1 ,name:'xu'},
+        {age:4 ,name:'yuan'},
+        {age:5 ,name:'lei'},
+        {age:3 ,name:'fang'},
+    ]
+    /*function  sortp(par){
+        for(var i=0;i<par.length;i++){
+            var temp;
+            for(var j=i+1;j<par.length;j++){
+                if(par[i].age>par[j].age){
+                    [par[i],par[j]]=[par[j],par[i]];
+                }
+            }
+        }
+    }
+    sortp(par);*/
+    /*par.sort(function(x,y){
+        return x.age-y.age;
+    });
+    for(key in par){
+        console.log(par[key]);
+    }*/
+    //2.去掉字符串中指定的字符  以及在某个位置添加字符  字符串中数字乘二  正则匹配
+   // var str = 'abc345efgabcab';
+    //str.pop('a');
+    //console.log(str)
+    //str.replace(/a/g,1);
+    //str = str.replace(/[abc]/g,'')
+    //str=str.replace(/345/g,"[3][4][5]")
+    /*str = str.repeat(2)
+    console.log(str)*/
+    //3.：函数每调用一次则改函数的返回值加1（注：要求使用es6新技术）
+    /*function countadd(){
+        var i=0;
+        return ()=>{
+            console.log(i)
+            return i++;
+        }
+    }
+    var a =countadd();
+    a();
+    a();
+    a();*/
+    //4.请写出下面js程序中几个document.write的结果
+    /*function Parent(){
+        this.colors = ['red'];
+        this.a = 1;
+
+        this.b = [1,2,this.a];
+
+        this.c = {dome:5};
+
+        this.show = function(){
+
+            document.write(this.a+''+this.c.dome+':'+this.b+'<br>')
+
+        }
+
+    }
+
+    function Child(){
+
+        this.a = 2;
+
+        this.change = function(){
+
+            this.a= this.b.length;
+
+            this.c.demo = this.a++;
+
+        }
+
+    }
+
+    Child.prototype = new Parent();
+
+    var parent = new Parent();
+
+    var child1 = new Child();
+
+    var child2 = new Child();
+
+    child1.a = 11;
+
+    child2.a = 12;
+    //child1.colors.push("blue");
+    //child1.b=['str'];
+    //console.log(child1.b+" "+child2.b)
+    //console.log(parent.c.dome)
+    //parent.show();//15:1,2,1
+
+    //child1.show();//115:1,2,1
+
+    //child2.show();//125:1,2,1
+    //console.log(child1.a +" "+ child2.a)
+    child1.change();
+
+    child2.change();
+
+    parent.show();//15:1,2,1
+
+    child1.show();//45:1,2,1
+
+    child2.show();//45:1,2,1
+    //5.分解url为json
+    /*var url = 'http://vip.qq.com/a.php?a=1&b=2&c=&d=xxx&e';
+    var obj={};
+    function spUrl(url,obj){
+        var url1 = url.split('?')[1];
+        url1 = url1.split('&');
+        for(var i =0;i<url1.length;i++){
+            var t = url1[i][0];
+            if(url1[i][1]){
+                if(url1[i][2]){
+                    obj[t] = url1[i][2];
+                }else{
+                    obj[t] = '';
+                }
+            }else{
+                obj[t] = undefined;
+            }
+
+        }
+        //console.log(url1[4][1]);
+    }
+    spUrl(url,obj)
+    //obj.t ='1'
+    console.log(obj)*/
+    //6.兼容的事件绑定函数
+    /*function addEvent(elem,event,fn) {
+        if(elem.addEventListener){
+            elem.addEventListener(event,fn,false);
+        }else if (elem.attachEvent){
+            elem.attachEvent('on'+event,fn);
+        }else{
+            elem['on'+event]=fn;
+        }
+    }*/
+    //7.编程实现找出求和最大的连续子数组
+    /*var arr = [1,-2,4,1,3];
+    function findM(arr){
+        var start=0;
+        var sum1 = new Array();
+        var sum=0;
+        var end=0;
+        for(var i=0;i<arr.length;i++){
+            if(sum+arr[i]>sum){
+                sum=sum+arr[i];
+            }else{
+                end=i-1;
+                sum1.push(sum,start,end);
+                start=i+1;
+                sum=0;
+            }
+
+        }
+        return sum1;
+    }
+    var arr1 = findM(arr);
+    console.log(arr1)*/
+    //8.原生样式优化
+    /*var s = document.getElementsByTagName('span')[0];
+    //s.setAttribute("style","color: red;font-weight:blod;")
+    console.log(s.style.cssText)
+    s.style.cssText="color: red;font-weight:blod;";*/
+    //9.函数只有效输出一次
+    /*window.onload = function () {
+        function once(fn) {
+            var result;
+            return  function() {
+                if(fn) {
+                    result = fn.apply(this, arguments);
+                    fn = undefined;
+                }
+                return result;
+            };
+        }
+        var callOnce = once(function() {
+            console.log('javascript');
+        });
+        callOnce(); // javascript
+        callOnce(); // undefined
+    }*/
+    /*var func = function () {
+        console.log("正常调用");
+        func= function(){
+            console.log("undefined")
+        };
+    }
+    func();
+    func();*/
+    /*window.onload = function () {
+        var flag = true;
+
+        function once() {
+            if (flag) {
+                alert("我被调用");
+                flag = false;
+            } else {
+                return;
+            }
+        }
+        once();
+        once();
+    }*/
+    //10.写一个函数，将‘hello world’ 转为 ‘h e l l o w o r l d’
+    /*var str= 'hello world';
+    function cChar(str){
+        var str1= str.split(' ')[0];
+        var str2= str.split(' ')[1];
+        str1 = str1.split('').join(' ');
+        str2 = str2.split('').join(' ');
+        //console.log(str1+' '+str2)
+        return str1+' '+str2;
+    }
+    str=cChar(str);
+    console.log(str)*/
+    //11.给定var str = "github is free for open source ";把这个字符串变成"github6 is7 free8 for9 open10 source11"
+    /*var char = "github is free for open source ";
+    function cChar(char){
+        var str= char.split(' ');
+        for(var i =0;i<str.length-1;i++){
+            str[i]=str[i]+(i+6);
+        }
+        return str;
+    }
+    console.log(cChar(char));*/
+    //12.动态创建一个UL节点，并绑定1000个LI子节点，显示在body的第一个节点前
+    /*var fir = document.body.firstChild;
+    var ul = document.createElement('ul');
+    var fragment = document.createDocumentFragment();
+    for(var i=0;i<1000;i++){
+        var li = document.createElement('li');
+        fragment.appendChild(li);
+    }
+    ul.appendChild(fragment)
+    document.body.insertBefore(ul,fir)*/
+    //13.编写一个字谜程序，可以找出以下矩阵中的单词
+    var arr = [['t','h','i','s'],['w','t','i','j'],['o','t','a','h'],['w','b','b','w']];
+    var result = new Array();
+    console.log(arr.length)
+    for(var i=0;i<arr.length;i++){
+        for(var j=0;j<arr[i].length;j++){
+            if(i==0){
+
+            }
+        }
+
+    }
+
+</script>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的扩展</title>
+</head>
+<body>
+<div>nihao</div>
+</body>
+</html>
+<script>
+    /*function f(x, y) {
+        return {x, y};
+    }
+
+    // 等同于
+
+    function f(x, y) {
+        return {x: x, y: y};
+    }
+
+    alert(f(1, 2)); // Object {x: 1, y: 2}*/
+    /*let birth = '2000/01/01';
+
+    const Person = {
+
+        name: '张三',
+
+        //等同于birth: birth
+        birth,
+
+        // 等同于hello: function ()...
+        hello() { console.log('我的名字是', this); }
+
+    };
+    Person.hello();*/
+    /*let obj = {
+        propKey: true,
+        ['a' + 'bc']: 123
+    };
+    console.log(obj);*/
+    /*let lastWord = 'last word';
+
+    const a = {
+        'first word': 'hello',
+        [lastWord]: 'world'
+    };
+
+    alert(a['first word']) // "hello"
+    console.log(a)// "world"
+    alert(a['last word'])*/
+    /*const target = { a: 1 };
+
+    const source1 = { b: 2 };
+    const source2 = { c: 3 };
+
+    Object.assign(target, source1, source2);
+    console.log(target);*/
+    /*const v1 = 'abc';
+    const v2 = true;
+    const v3 = 10;
+
+    const obj = Object.assign({}, v1, v2, v3);
+    console.log(obj); // { "0": "a", "1": "b", "2": "c" }*/
+    /*var obj = { foo: 'bar', baz: 42 };
+    alert(Object.keys(obj));*/
+    /*var str='';
+    function getPos(num,left,right){
+        var a = (left+right)/2;
+        if(a>=0){
+            a=Math.floor(a);
+        }else{
+            a = Math.ceil(a);
+        }
+        if((num>=a)&&((right-left)>=5)){
+            str+='1';
+            alert(a);
+            getPos(num,a,right);
+        }else if((num<a)&&((right-left)>=5)){
+            str+='0';
+            alert(a);
+            getPos(num,left,a);
+        }
+    }
+    getPos(49,-90,90);
+    alert(str);*/
+    /*var num ='12 3'
+    var n=num.split(' ')[0];
+    var m=num.split(' ')[1];
+    var i =n/(2*m);
+    if(m==1){
+        alert(i);
+    }else{
+        alert(i*Math.pow(2,m));
+    }*/
+    /*var num = '6';
+    var count ='2 3 3 3';
+    var a = parseInt(count.split(' ')[0]);
+    var acount = parseInt(count.split(' ')[1]);
+    var b = parseInt(count.split(' ')[2]);
+    var bcount = parseInt(count.split(' ')[3]);
+    var sum1=1;
+    var sum2=1;
+    var sub=1;
+    var sub1 =1;
+    if((num%(a+b))==0){
+        var i = num/(a+b);
+        for(var j =0;j<i;j++){
+            sum1 = sum1*acount;
+            sum2 = sum2*bcount
+            sub = sub*(j+1);
+            acount--;
+            bcount--;
+        }
+        alert((sum1/sub)*(sum2/sub));
+    }else if(num%a==0&&num%b!=0){
+        var i = num/a;
+        for(var j =0;j<i;j++){
+            sum1 = sum1*acount;
+            sub = sub*(j+1);
+            acount--;
+        }
+        alert(sum1/sub);
+    }else if(num%b==0&&num%a!=0){
+        var i = num/b;
+        for(var j =0;j<i;j++){
+            sum2 = sum2*bcount;
+            sub = sub*(j+1);
+            bcount--;
+        }
+        alert(sum2/sub);
+    }else if(num%a==0&&num%b==0){
+        var i = num/a;
+        for(var t =0;t<i;t++){
+            sum1 = sum1*acount;
+            sub = sub*(t+1);
+            acount--;
+        }
+        var j = num/b;
+        for(var k =0;k<j;k++){
+            sum2 = sum2*bcount;
+            sub1 = sub1*(k+1);
+            bcount--;
+        }
+        alert((sum1/sub)+(sum2/sub1));
+    }*/
+    /*var str = 'HHTHHH';
+    var num=0;
+    for(var i =0;i<str.length;i++){
+        if(i==0&&str[i]!=str[i+1]){
+            num++;
+        }else if(i==(str.length-1)&&str[i]!=str[i-1]){
+            num++;
+        }else if(str[i]!=str[i-1]||str[i]!=str[i+1]){
+            num++;
+        }
+    }
+    alert(num);*/
+    /*var n = 7;
+    var max = 1;
+    for(var i=2;i<=n;i++){
+        max=max*i;
+    }
+    for(var j = n;j<=max;j++){
+        for(var k = 1;k<=n;k++){
+            if(j%k==0){
+                continue;
+            }else{
+                break;
+            }
+        }
+        if(k>n){
+            alert(j);
+            break;
+        }
+    }*/
+    /*var n = 10;
+    var max = 1;
+    function mun(max,min){
+        var m,o;
+        if(max%min==0){
+            return 1;
+        }
+        else{
+            for(var i =2;i<min;i++){
+                if(max%i==0&&min%i==0){
+                    m=i;
+                    o=1;
+                }
+            }
+            if(!o){
+                return 0;
+            }else{
+            return m;
+            }
+        }
+    }
+    for(var i=1;i<=n;i++){
+        if(i==1||i==2||i==3){
+            max = max*i;
+            //console.log(max);
+        }else{
+            if(mun(max,i)==0){
+                max=max*i;
+                //console.log(max);
+            }else if(mun(max,i)==1){
+                max = max;
+                console.log(max);
+            }else{
+                var tem = mun(max,i);
+                console.log(tem);
+                max = max*i/tem;
+                //console.log(max);
+            }
+        }
+    }
+    alert(max);*/
+    /*var name="song"
+    var obj={
+        name:'xu',
+        test:function(){
+            //var that =this;
+            return function sum() {
+                alert(this);
+                alert(this.name);
+            }
+            //alert(this.name);
+        }
+    }
+    /*Sub.prototype.test=function(){
+        alert(this.name);
+    }*/
+    /*function sum() {
+        //alert(this);
+        alert(this.name);
+    }
+    var a =obj.test();
+    a();
+    window.sum()*/
+    /*function Sum(name){
+        this.name=name;
+        this.test=function(b){
+            var a =b;
+            alert(a);
+        }
+    }
+    Sum.prototype.test = function(){
+        alert("true");
+    }
+    var d = new Sum('yuan');
+    console.log(d);*/
+    /*var first=document.body.firstChild;//得到页面的第一个元素
+    var ul = document.createElement('ul');
+    for(var i =0;i<1000;i++){
+        var li = document.createElement('li');
+        ul.appendChild(li);
+    }
+    document.body.insertBefore(ul,first);*/
+    console.log(typeof  [])
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div>
+	<p>nihao</p>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	/*var node = document.getElementsByTagName('p');
+	node[0].onclick=function(){
+		alert('nihao');
+	}*/
+	/*var text = "mom and dad and baby";
+	var patten = /mom( and dad (and baby)? )?/gi;
+	var marches = patten.exec(text);
+	alert(marches.index);
+	alert(marches.length);*/
+	/*function sum(a,b){
+		return a+b;
+	}
+	var color = 'green';
+	var o = {
+		a:1,
+		b:2,
+		color:'blue',
+		co : function(color){
+			alert(color);
+		}
+	};
+	function callsum(a,b){
+		color = 'red';
+		alert(this.color);
+	}
+	/*callsum();
+	callsum.apply(o)*/
+	/*o.co('ni');
+	o.co.apply(this,['white']);*/
+	/*function getS(){
+		var arr = new Array();
+		for(var i =0;i<10;i++){
+			arr[i] = function(){
+				return i;
+			}
+		}
+		return arr;
+	}
+	alert(getS()[1]());*/
+	/*function getS(){
+		var arr = new Array();
+		for(var i =0;i<10;i++){
+			arr[i] = function(num){
+				return function(){
+					return num;
+				}
+			}(i)
+		}
+		return arr;
+	}
+	alert(getS()[4]());*/
+    function getS(){
+        var arr = new Array();
+        for(var i =0;i<10;i++){
+            //var that = this;
+            arr[i] = function(){
+                return i
+            }
+        }
+        return arr;
+    }
+    for(var i=0;i<10;i++){
+    	console.log(getS()[i]());
+    }
+</script>

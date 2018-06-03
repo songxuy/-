@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>平行四边</title>
+</head>
+<style>
+    /*1.*/
+    /*.button{
+        -webkit-transform: skewX(-45deg);
+        -moz-transform: skewX(-45deg);
+        -ms-transform: skewX(-45deg);
+        -o-transform: skewX(-45deg);
+        transform: skewX(-45deg);
+        background-color: #76d6f5;
+        width:200px;
+        height:30px;
+    }
+    button>div{
+        transform: skewX(45deg);
+    }*/
+    /*2*/
+    .button{
+        position: relative;
+        color: #ffffff;
+        background-color: #76d6f5;
+        padding:5px 0;
+        display: block;
+        width:70px;
+    }
+    .button:before{
+        position: absolute;
+        content:"";
+        top:0px;
+        right:0px;
+        bottom:0px;
+        left:0px;
+        z-index:-1;
+        background: #76d6f5;
+        transform: skewX(45deg);
+    }
+</style>
+<body>
+<a href="#" class="button">
+    <div>Click Me</div>
+</a>
+</body>
+</html>

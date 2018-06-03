@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条纹背景</title>
+</head>
+<style>
+    div{
+        /*background: linear-gradient(#fb3,#58a);*/
+        /*background: linear-gradient(#fb3 50%,#58a 50%);*/
+        height:200px;
+        width:400px;
+        /*background: linear-gradient(#fb3 50%,#58a 50%);/*横向重复*/
+        /*background: linear-gradient(to right,#fb3 50%,#58a 0);/*纵向重复  要颠倒background-size的值*/
+        /*background: linear-gradient(45deg,#fb3 50%,#58a 0);/*45重复  要修改background-size的值*/
+        background: repeating-linear-gradient(35deg,#79b,#79b 15px,#58a 0,#58a 30px);
+        /*background-size: 30px 30px;*/
+    }
+</style>
+<body>
+<div></div>
+</body>
+</html>
